@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from .views import EstudianteViewSet, NotaViewSet, MateriaViewSet, EstudianteViewSet, MateriaEstViewSet
 
 
 
-listaNParametros = views.NotaViewSet.as_view({
+listaNParametros = NotaViewSet.as_view({
     'get': 'retrieve',
     'post': 'create',
     'put': 'update',
@@ -12,24 +12,24 @@ listaNParametros = views.NotaViewSet.as_view({
     'delete': 'destroy'
 })
 
-listaM = views.MateriaViewSet.as_view({
+listaM = MateriaViewSet.as_view({
     'get': 'list',
     'post': 'create'
 })
 
-listaMParametros = views.MateriaViewSet.as_view({
+listaMParametros = MateriaViewSet.as_view({
     'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',
     'delete': 'destroy'
 })
 
-listaE = views.EstudianteViewSet.as_view({
+listaE = EstudianteViewSet.as_view({
     'get': 'list',
     'post': 'create'
 })
 
-listaEParametros = views.EstudianteViewSet.as_view({
+listaEParametros = EstudianteViewSet.as_view({
     'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',
@@ -37,7 +37,7 @@ listaEParametros = views.EstudianteViewSet.as_view({
 })
 
 
-listaMEParametros = views.MateriaEstViewSet.as_view({
+listaMEParametros = MateriaEstViewSet.as_view({
     'get': 'retrieve',
     'post': 'create',
     'put': 'update',
