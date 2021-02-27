@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'apps.gestion_estudiantes',
     'apps.modelo',
     'apps.api',
-    'apps.rest_framework',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
