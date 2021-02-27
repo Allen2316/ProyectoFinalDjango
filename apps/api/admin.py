@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Nota, Estudiante, Materia, MateriaEstudiante
+from apps.modelo.models import Nota, Materia, Estudiante, MateriaEstudiante
 
 admin.site.register(Estudiante)
 admin.site.register(Materia)
