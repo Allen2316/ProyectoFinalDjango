@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from .models import Nota, Materia, MateriaEstudiante, Estudiante
+from apps.modelo.models import Nota, Materia, Estudiante, MateriaEstudiante
 
 
 class NotaSerializer(serializers.ModelSerializer):    
