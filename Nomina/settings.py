@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'Nomina.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'respaldoprueba',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'NAME': 'xpyzp56sx5dzemmf',
+        'USER': 'so6n8808nhe335qg',
+        'PASSWORD': 'rov3qk8k9ygjovrj',
+        'HOST': 'lfmerukkeiac5y5w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
