@@ -1,0 +1,92 @@
+{% extends "master.html" %}
+
+<body>
+
+    {% block contenido %}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <h2 class="text-center">Datos del Estudiante</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <ul>
+                            <li><span class="font-weight-bold">Cédula: </span>{{estudiante.cedula}}</li>
+                            <li><span class="font-weight-bold">Apellidos: </span>{{estudiante.apellidos}}</li>
+                            <li><span class="font-weight-bold">Nombres: </span>{{estudiante.nombres}}</li>
+                            <li><span class="font-weight-bold">Correo: </span>{{estudiante.correo}}</li>
+                            <li><span class="font-weight-bold">Direccion: </span>{{estudiante.direccion}}</li>
+                            <li><span class="font-weight-bold">Celular: </span>{{estudiante.celular}}</li>
+                            <li><span class="font-weight-bold">E. Civil: </span>{{estudiante.estadoCivil}}</li>
+                        </ul>
+                        <div class="row justify-content-center">
+                            <a href="{% url 'updateEstudiante' estudiante.cedula %}" class="btn btn-warning">Editar</a></td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <h2 class="text-center">Materias Matriculadas</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="bg-info">
+                            <tr>
+                                <th scope="col">Materia</th>
+                                <th class="text-center" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for materia in materias %}
+                            <tr>
+                                <th scope="row">{{materia.nombre}}</th>
+                                <td class="text-center"><a href="{% url 'Notas' estudiante.cedula materia.nombre %}"
+                                        class="btn btn-success">Calificar</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center">Calificaciones</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="bg-light">
+                    <tr>
+                        <th scope="col">Materia</th>
+                        <th scope="col">Nota 1</th>
+                        <th scope="col">Nota 2</th>
+                        <th scope="col">Nota 3</th>
+                        <th scope="col">Promedio</th>
+                        <th scope="col">Estado</th>                    
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nota in notas %}
+                    <tr>
+                        <th scope="row">{{nota.materia}}</th>
+                        <td>{{nota.nota1}}</td>
+                        <td>{{nota.nota2}}</td>
+                        <td>{{nota.nota3}}</td>
+                        <td>{{nota.promedio}}</td>
+                        {% for est in mateEst %}
+                        {% if est.materia == nota.materia %}
+                        <td>{{est.estado}}</td>
+                        {% endif %}
+                        {% endfor %}                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+            <div class="px-3 mb-3 text-center">
+                <a href="{% url 'estudiantes'%}" class="btn btn-secondary px-4">Volver</a>
+            </div>
+        </div>
+
+    </div>
+
+    {% endblock %}
+</body>

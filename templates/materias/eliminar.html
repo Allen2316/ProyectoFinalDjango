@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+{% block contenido %}
+<div class="jumbotron p-3">
+    <form method="POST"> {% csrf_token %}
+        <div class="form-group">
+            <h2>¿Estas seguro de eliminar esta Asignatura?</h2>
+        </div>
+        <hr>
+        <small>Tenga en cuenta que si lo hace es posible ya no poder volver a recuperar los datos</small>
+        <hr>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'estudiantes' %}" class="btn btn-dark">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

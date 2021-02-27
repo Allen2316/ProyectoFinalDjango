@@ -1,0 +1,41 @@
+{% extends "master.html" %}
+{% block contenido %}
+<div class="jumbotron p-3">
+    <form method="POST"> {% csrf_token %}
+        <div class="form-group">
+            <h2>¿Estas seguro de eliminar el Estudiante?</h2>            
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Cédula</th>
+                            <th scope="col">Nombre Completo</th>
+                            <th scope="col">Genero</th>
+                            <th scope="col">E. Civil</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Celular</th>                            
+                            <th scope="col">Direccion</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{estudiante.cedula}}</th>
+                            <td>{{estudiante.nombres}} {{estudiante.apellidos}}</td>
+                            <td>{{estudiante.genero}}</td>
+                            <td>{{estudiante.estadoCivil}}</td>
+                            <td>{{estudiante.correo}}</td>
+                            <td>{{estudiante.celular}}</td>
+                            <td>{{estudiante.direccion}}</td>                                                                                    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr>
+        <small>Tenga en cuenta que si lo hace es posible ya no poder volver a recuperar los datos</small>
+        <hr>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'estudiantes' %}" class="btn btn-dark">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
