@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import status
-from .models import Nota, Materia, Estudiante, MateriaEstudiante
+from apps.modelo.models import Nota, Materia, Estudiante, MateriaEstudiante
 from .serializers import NotaSerializer, MateriaSerializer, EstudianteSerializer, MatEstuSerializer
 from rest_framework import serializers
 from django.shortcuts import get_object_or_404
