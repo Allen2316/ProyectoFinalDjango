@@ -5,7 +5,7 @@ class Materia(models.Model):
     materia_id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=70, null=True, blank=True)    
     date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.nombre)
@@ -38,7 +38,7 @@ class Estudiante(models.Model):
     # blank=True permite dejar vacio o en blanco
     materia = models.ManyToManyField(Materia, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.cedula
@@ -59,7 +59,7 @@ class Nota(models.Model):
     materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
 
     date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.nota_id)
@@ -71,7 +71,7 @@ class MateriaEstudiante(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
     materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.matEst_id)
