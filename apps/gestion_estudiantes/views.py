@@ -79,7 +79,7 @@ def actualizarMateria(request, nombre):
 
 
 def eliminarMateria(request, nombre):
-    materia = Materia.objects.get(nombre=nombre)
+    materia = Materia.objects.filter(nombre=nombre).first()
     if request.method == 'POST':
         materia.delete()
         return redirect(index)
