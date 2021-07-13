@@ -29,8 +29,7 @@ DEBUG = False
 
 #para solo heroku descomentar 
 #ALLOWED_HOSTS = ['proyectofinaldjango.herokuapp.com']
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['proyectofinaldjango.herokuapp.com','mi-primer-app.azurewebsites.net']
 
 # Application definition
 
